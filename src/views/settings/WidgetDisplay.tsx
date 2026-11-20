@@ -1,5 +1,8 @@
 import React from "react";
-import { WidgetDisplay as WidgetDisplayType } from "../../db/state";
+import {
+  defaultWidgetFontSize,
+  WidgetDisplay as WidgetDisplayType,
+} from "../../db/state";
 import PositionInput from "./PositionInput";
 import "./WidgetDisplay.css";
 
@@ -9,6 +12,8 @@ type Props = {
 };
 
 const WidgetDisplay: React.FC<Props> = ({ display, onChange }) => {
+  const fontSize = display.fontSize ?? defaultWidgetFontSize;
+  const scale = `${Math.round((fontSize / defaultWidgetFontSize) * 100)}%`;
   return (
     <div className="WidgetDisplay">
       <PositionInput
@@ -17,11 +22,12 @@ const WidgetDisplay: React.FC<Props> = ({ display, onChange }) => {
       />
 
       <label>
-        Size
+        Widget scale: {scale}
         <br />
         <input
           type="range"
-          value={display.fontSize}
+          value={fontSize}
+          aria-valuetext={scale}
           min="2"
           max="100"
           step="2"

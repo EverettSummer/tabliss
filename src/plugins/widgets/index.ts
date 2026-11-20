@@ -1,5 +1,6 @@
 import css from "./css";
 import github from "./github";
+import glitchtip from "./glitchtip";
 import greeting from "./greeting";
 import ipInfo from "./ipInfo";
 import js from "./js";
@@ -19,6 +20,7 @@ import joke from "./joke";
 export const widgetConfigs = [
   css,
   github,
+  glitchtip,
   greeting,
   ipInfo,
   links,

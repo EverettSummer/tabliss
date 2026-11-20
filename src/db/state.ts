@@ -45,6 +45,8 @@ export interface WidgetDisplay {
   position: WidgetPosition;
 }
 
+export const defaultWidgetFontSize = 24;
+
 export type WidgetPosition =
   | "topLeft"
   | "topCentre"

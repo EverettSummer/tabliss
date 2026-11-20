@@ -1,0 +1,31 @@
+.GlitchTip {
+  width: 18em;
+  max-width: calc(100vw - 2rem);
+  max-height: 65vh;
+  overflow: auto;
+  overflow-wrap: anywhere;
+  font-size: 0.75em;
+  text-align: start;
+}
+
+.GlitchTip ol {
+  list-style: none;
+  padding: 0;
+}
+
+.GlitchTip li + li {
+  margin-top: 0.6em;
+}
+
+.GlitchTip .details {
+  font-size: 0.8em;
+}
+
+.GlitchTip button {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}

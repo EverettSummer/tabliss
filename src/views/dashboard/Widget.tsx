@@ -1,11 +1,11 @@
 import React from "react";
-import { WidgetDisplay } from "../../db/state";
+import { defaultWidgetFontSize, WidgetDisplay } from "../../db/state";
 
 const Widget: React.FC<React.PropsWithChildren<WidgetDisplay>> = ({
   children,
   colour,
   fontFamily,
-  fontSize = 24,
+  fontSize = defaultWidgetFontSize,
   fontWeight,
 }) => (
   <div

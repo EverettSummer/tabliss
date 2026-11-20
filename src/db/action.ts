@@ -2,7 +2,7 @@ import { nanoid } from "nanoid";
 import { DB } from "../lib";
 import migrateFrom2 from "./migrations/migrate2";
 import { selectWidgets } from "./select";
-import { cache, db, WidgetDisplay } from "./state";
+import { cache, db, WidgetDisplay, WidgetPosition } from "./state";
 
 export const createId = (): string => nanoid(12);
 
@@ -24,7 +24,10 @@ export const setBackground = (key: string): void => {
 // Widget actions
 
 /** Add a new widget */
-export const addWidget = (key: string): void => {
+export const addWidget = (
+  key: string,
+  position: WidgetPosition = "middleCentre",
+): void => {
   const id = createId();
   const widgets = selectWidgets();
   const order = widgets.length > 0 ? widgets[widgets.length - 1].order + 1 : 0;
@@ -32,7 +35,7 @@ export const addWidget = (key: string): void => {
     id,
     key,
     order,
-    display: { position: "middleCentre" },
+    display: { position },
   });
 };
 

@@ -4,7 +4,7 @@ import { addWidget, removeWidget, reorderWidget } from "../../db/action";
 import { selectWidgets } from "../../db/select";
 import { db } from "../../db/state";
 import { useSelector } from "../../lib/db/react";
-import { widgetConfigs } from "../../plugins";
+import { getConfig, widgetConfigs } from "../../plugins";
 import Widget from "./Widget";
 
 const Widgets: React.FC = () => {
@@ -23,7 +23,10 @@ const Widgets: React.FC = () => {
       <label>
         <select
           value=""
-          onChange={(event) => addWidget(event.target.value)}
+          onChange={(event) => {
+            const { key, defaultPosition } = getConfig(event.target.value);
+            addWidget(key, defaultPosition);
+          }}
           className="primary"
         >
           <option disabled value="">

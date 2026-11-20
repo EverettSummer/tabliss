@@ -1,4 +1,5 @@
 import { ComponentType } from "react";
+import type { WidgetPosition } from "../db/state";
 
 export type Cache<Shape = unknown> = {
   /**
@@ -43,5 +44,6 @@ export type Config = {
   readonly description: string;
   readonly dashboardComponent: ComponentType<API<any, any>>;
   readonly settingsComponent?: ComponentType<API<any, any>>;
+  readonly defaultPosition?: WidgetPosition;
   readonly supportsBackdrop?: boolean;
 };

@@ -52,8 +52,6 @@ export const indexeddb = (
           DB.listen(
             db,
             batch((changes) => {
-              if (DEV) console.log("Storage: saving changes:", changes);
-
               const trx = conn.transaction("changes", "readwrite");
               trx.oncomplete = () => {}; // nice
               trx.onerror = (error) =>
@@ -113,8 +111,6 @@ export const extension = async (
   DB.listen(
     db,
     batch((changes) => {
-      if (DEV) console.log("Storage: saving changes:", changes);
-
       // TODO: test for both updates and deletes for the same key
       // TODO: iterator helpers
       const changesArray = Array.from(changes);
